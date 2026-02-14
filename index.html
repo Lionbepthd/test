@@ -37,6 +37,7 @@
             font-size: 26px;
             font-weight: bold;
             color: #ff6b1a;
+            cursor: pointer;
         }
 
         .logo span {
@@ -85,6 +86,7 @@
             font-weight: 500;
             transition: color 0.3s;
             font-size: 15px;
+            cursor: pointer;
         }
 
         nav ul li a:hover, nav ul li a.active {
@@ -146,6 +148,7 @@
             color: #ff6b1a;
             text-decoration: none;
             font-size: 14px;
+            cursor: pointer;
         }
 
         /* Banner/Carousel */
@@ -442,64 +445,6 @@
             border: none;
         }
 
-        .server-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin: 20px 0;
-        }
-
-        .server-btn {
-            background-color: #2a2a35;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        .server-btn:hover, .server-btn.active {
-            background-color: #ff6b1a;
-        }
-
-        .download-links {
-            background-color: #1a1a24;
-            padding: 20px;
-            border-radius: 10px;
-            margin: 20px 0;
-        }
-
-        .quality-section {
-            margin: 15px 0;
-        }
-
-        .quality-title {
-            color: #ff6b1a;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-
-        .download-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .download-btn {
-            background-color: #2a2a35;
-            color: white;
-            text-decoration: none;
-            padding: 8px 15px;
-            border-radius: 5px;
-            font-size: 13px;
-            transition: 0.3s;
-        }
-
-        .download-btn:hover {
-            background-color: #ff6b1a;
-        }
-
         .nav-episode {
             display: flex;
             justify-content: space-between;
@@ -526,24 +471,90 @@
             cursor: not-allowed;
         }
 
-        /* Batch Page */
-        .batch-container {
+        /* Schedule Page */
+        .schedule-container {
             background-color: #1a1a24;
             border-radius: 15px;
-            padding: 25px;
+            padding: 20px;
         }
 
-        .batch-info {
-            margin: 20px 0;
+        .schedule-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 25px;
+            border-bottom: 2px solid #2a2a35;
+            padding-bottom: 15px;
         }
 
-        .batch-quality {
-            margin: 25px 0;
+        .schedule-tab {
+            background-color: #2a2a35;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-weight: 500;
         }
 
-        .batch-quality h3 {
+        .schedule-tab:hover, .schedule-tab.active {
+            background-color: #ff6b1a;
+        }
+
+        .schedule-day-content {
+            display: none;
+        }
+
+        .schedule-day-content.active {
+            display: block;
+        }
+
+        .schedule-anime-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            background-color: #0f0f13;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 12px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .schedule-anime-item:hover {
+            background-color: #2a2a35;
+            transform: translateX(5px);
+        }
+
+        .schedule-anime-item img {
+            width: 70px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .schedule-anime-info {
+            flex: 1;
+        }
+
+        .schedule-anime-info h4 {
+            font-size: 18px;
+            margin-bottom: 8px;
             color: #ff6b1a;
-            margin-bottom: 15px;
+        }
+
+        .schedule-anime-info p {
+            color: #aaa;
+            font-size: 14px;
+        }
+
+        .schedule-day-header {
+            font-size: 24px;
+            color: #ff6b1a;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #ff6b1a;
         }
 
         /* Loading */
@@ -551,6 +562,40 @@
             text-align: center;
             padding: 50px;
             color: #ff6b1a;
+        }
+
+        /* Error */
+        .error-container {
+            text-align: center;
+            padding: 50px;
+            background-color: #1a1a24;
+            border-radius: 10px;
+        }
+
+        .error-icon {
+            font-size: 50px;
+            color: #ff6b1a;
+            margin-bottom: 20px;
+        }
+
+        .error-message {
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        .retry-btn {
+            background-color: #ff6b1a;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        .retry-btn:hover {
+            background-color: #ff8c4a;
         }
 
         /* Responsive */
@@ -582,6 +627,16 @@
             .info-table {
                 grid-template-columns: 1fr;
             }
+
+            .schedule-anime-item {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .schedule-anime-item img {
+                width: 120px;
+                height: 160px;
+            }
         }
     </style>
 </head>
@@ -594,12 +649,12 @@
         </div>
         <nav>
             <ul>
-                <li><a href="#" onclick="navigateTo('home')" class="nav-link" id="nav-home">Home</a></li>
-                <li><a href="#" onclick="navigateTo('ongoing')" class="nav-link" id="nav-ongoing">Ongoing</a></li>
-                <li><a href="#" onclick="navigateTo('completed')" class="nav-link" id="nav-completed">Completed</a></li>
-                <li><a href="#" onclick="navigateTo('genre')" class="nav-link" id="nav-genre">Genre</a></li>
-                <li><a href="#" onclick="navigateTo('schedule')" class="nav-link" id="nav-schedule">Jadwal</a></li>
-                <li><a href="#" onclick="navigateTo('all')" class="nav-link" id="nav-all">All Anime</a></li>
+                <li><a onclick="navigateTo('home')" class="nav-link" id="nav-home">Home</a></li>
+                <li><a onclick="navigateTo('ongoing')" class="nav-link" id="nav-ongoing">Ongoing</a></li>
+                <li><a onclick="navigateTo('completed')" class="nav-link" id="nav-completed">Completed</a></li>
+                <li><a onclick="navigateTo('genre')" class="nav-link" id="nav-genre">Genre</a></li>
+                <li><a onclick="navigateTo('schedule')" class="nav-link" id="nav-schedule">Jadwal</a></li>
+                <li><a onclick="navigateTo('all')" class="nav-link" id="nav-all">All Anime</a></li>
             </ul>
         </nav>
     </header>
@@ -614,7 +669,7 @@
 
     <footer style="background-color: #0a0a0f; padding: 30px 5%; text-align: center; color: #666; margin-top: 50px;">
         <p>&copy; 2026 AnimeKu - Nonton Anime Sub Indo. Data by Sanka Vollerei.</p>
-        <p style="margin-top: 10px; font-size: 13px;">Semua konten berasal dari API eksternal. Hak cipta milik masing-masing pemilik.</p>
+        <p style="margin-top: 10px; font-size: 13px;">Semua konten berasal dari API eksternal.</p>
     </footer>
 
     <script>
@@ -666,9 +721,6 @@
                 case 'episode':
                     loadEpisodeDetail(param);
                     break;
-                case 'batch':
-                    loadBatchDetail(param);
-                    break;
                 case 'search':
                     loadSearchResults(param, pageNum);
                     break;
@@ -705,10 +757,14 @@
 
         function showError(message) {
             document.getElementById('main-content').innerHTML = `
-                <div style="text-align: center; padding: 50px; color: #ff6b1a;">
-                    <i class="fas fa-exclamation-circle fa-3x"></i>
-                    <p style="margin-top: 20px;">${message}</p>
-                    <button onclick="navigateTo('home')" style="margin-top: 20px; padding: 10px 25px; background: #ff6b1a; border: none; color: white; border-radius: 5px; cursor: pointer;">Kembali ke Home</button>
+                <div class="error-container">
+                    <div class="error-icon">
+                        <i class="fas fa-exclamation-circle"></i>
+                    </div>
+                    <h2 class="error-message">${message}</h2>
+                    <button class="retry-btn" onclick="navigateTo('home')">
+                        <i class="fas fa-home"></i> Kembali ke Home
+                    </button>
                 </div>
             `;
         }
@@ -749,7 +805,7 @@
                 <section class="content-section">
                     <div class="section-title">
                         <span>📺 Sedang Tayang</span>
-                        <a href="#" onclick="navigateTo('ongoing')">Lihat Semua →</a>
+                        <a onclick="navigateTo('ongoing')">Lihat Semua →</a>
                     </div>
                     <div class="anime-grid">
             `;
@@ -765,7 +821,7 @@
                 <section class="content-section">
                     <div class="section-title">
                         <span>✅ Anime Tamat</span>
-                        <a href="#" onclick="navigateTo('completed')">Lihat Semua →</a>
+                        <a onclick="navigateTo('completed')">Lihat Semua →</a>
                     </div>
                     <div class="anime-grid">
             `;
@@ -889,42 +945,76 @@
             document.getElementById('main-content').innerHTML = html;
         }
 
-        // ==================== SCHEDULE ====================
+        // ==================== SCHEDULE (FIXED VERSION) ====================
         async function loadSchedule() {
             showLoading();
             const data = await fetchAPI('/schedule');
             
             if (!data) return;
 
+            const days = ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu', 'Random'];
+            
             let html = `
                 <h2 class="section-title">📅 Jadwal Rilis Anime</h2>
-                <div class="schedule-section" style="background: #1a1a24; padding: 20px; border-radius: 10px;">
+                <div class="schedule-container">
+                    <div class="schedule-tabs">
             `;
 
+            // Create tabs
+            days.forEach((day, index) => {
+                html += `<button class="schedule-tab ${index === 0 ? 'active' : ''}" onclick="showScheduleDay('${day}')">${day}</button>`;
+            });
+
+            html += `</div>`;
+
+            // Create content for each day
             data.forEach(dayObj => {
+                const day = dayObj.day;
+                const animeList = dayObj.anime_list || [];
+                
                 html += `
-                    <div style="margin-bottom: 30px;">
-                        <h3 style="color: #ff6b1a; margin-bottom: 15px;">${dayObj.day}</h3>
-                        <div style="display: flex; flex-direction: column; gap: 10px;">
+                    <div id="schedule-${day}" class="schedule-day-content ${day === 'Senin' ? 'active' : ''}">
+                        <div class="schedule-day-header">
+                            <i class="far fa-calendar-alt"></i> ${day}
+                        </div>
                 `;
 
-                dayObj.anime_list.forEach(anime => {
-                    html += `
-                        <div style="display: flex; align-items: center; gap: 15px; background: #0f0f13; padding: 10px; border-radius: 8px; cursor: pointer;" onclick="navigateTo('detail', '${anime.slug}')">
-                            <img src="${anime.poster}" alt="${anime.title}" style="width: 50px; height: 70px; object-fit: cover; border-radius: 5px;">
-                            <div>
-                                <h4 style="font-size: 16px;">${anime.title}</h4>
-                                <p style="color: #aaa; font-size: 13px;">Rilis setiap ${dayObj.day}</p>
+                if (animeList.length === 0) {
+                    html += `<p style="color: #aaa; text-align: center; padding: 30px;">Tidak ada jadwal untuk hari ${day}</p>`;
+                } else {
+                    animeList.forEach(anime => {
+                        html += `
+                            <div class="schedule-anime-item" onclick="navigateTo('detail', '${anime.slug}')">
+                                <img src="${anime.poster}" alt="${anime.title}">
+                                <div class="schedule-anime-info">
+                                    <h4>${anime.title}</h4>
+                                    <p><i class="far fa-clock"></i> Rilis setiap ${day}</p>
+                                </div>
                             </div>
-                        </div>
-                    `;
-                });
+                        `;
+                    });
+                }
 
-                html += `</div></div>`;
+                html += `</div>`;
             });
 
             html += `</div>`;
             document.getElementById('main-content').innerHTML = html;
+        }
+
+        // Function to show selected schedule day
+        function showScheduleDay(day) {
+            // Update tabs
+            document.querySelectorAll('.schedule-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            event.target.classList.add('active');
+
+            // Update content
+            document.querySelectorAll('.schedule-day-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            document.getElementById(`schedule-${day}`).classList.add('active');
         }
 
         // ==================== ALL ANIME (UNLIMITED) ====================
@@ -950,9 +1040,11 @@
             html += `</div><div class="anime-grid">`;
 
             // Filter based on selected alphabet
+            let hasResults = false;
             alphabetList.forEach(group => {
-                if (!currentAlphabet || currentAlphabet === 'All' || group.startWith === currentAlphabet) {
+                if (!currentAlphabet || currentAlphabet === '' || currentAlphabet === 'All' || group.startWith === currentAlphabet) {
                     group.animeList.forEach(anime => {
+                        hasResults = true;
                         html += `
                             <div class="anime-card" onclick="navigateTo('detail', '${anime.animeId}')">
                                 <div style="background: linear-gradient(45deg, #ff6b1a, #ff9f4a); height: 120px; display: flex; align-items: center; justify-content: center;">
@@ -966,6 +1058,10 @@
                     });
                 }
             });
+
+            if (!hasResults) {
+                html += `<p style="grid-column: 1/-1; text-align: center; padding: 50px; color: #aaa;">Tidak ada anime dengan huruf "${currentAlphabet}"</p>`;
+            }
 
             html += `</div>`;
             document.getElementById('main-content').innerHTML = html;
@@ -1022,18 +1118,10 @@
                             <div class="genre-list">
             `;
 
-            data.genreList.forEach(genre => {
-                html += `<span class="genre-badge" onclick="navigateTo('genre', '${genre.genreId}')">${genre.title}</span>`;
-            });
-
-            html += `
-                            </div>
-                            
-                            <div style="margin-top: 20px; display: flex; gap: 10px; flex-wrap: wrap;">
-            `;
-
-            if (data.batch) {
-                html += `<button class="server-btn" onclick="navigateTo('batch', '${slug}')"><i class="fas fa-download"></i> Download Batch</button>`;
+            if (data.genreList && data.genreList.length > 0) {
+                data.genreList.forEach(genre => {
+                    html += `<span class="genre-badge" onclick="navigateTo('genre', '${genre.genreId}')">${genre.title}</span>`;
+                });
             }
 
             html += `
@@ -1051,7 +1139,8 @@
             `;
 
             if (data.episodeList && data.episodeList.length > 0) {
-                data.episodeList.reverse().forEach(ep => {
+                // Reverse to show latest episodes first
+                [...data.episodeList].reverse().forEach(ep => {
                     html += `
                         <div class="episode-item" onclick="navigateTo('episode', '${ep.episodeId}')">
                             <span class="episode-title">${ep.title}</span>
@@ -1060,7 +1149,7 @@
                     `;
                 });
             } else {
-                html += `<p style="color: #aaa;">Belum ada episode.</p>`;
+                html += `<p style="color: #aaa; text-align: center; padding: 20px;">Belum ada episode.</p>`;
             }
 
             html += `
@@ -1103,8 +1192,8 @@
                         </div>
                     </div>
                     
-                    <div style="margin: 20px 0;">
-                        <p><i class="far fa-clock"></i> ${data.releaseTime}</p>
+                    <div style="margin: 20px 0; color: #aaa;">
+                        <i class="far fa-clock"></i> ${data.releaseTime}
                     </div>
                     
                     <div class="nav-episode">
@@ -1124,151 +1213,32 @@
 
             html += `</div>`;
 
-            // Server List
-            if (data.server && data.server.qualities) {
-                html += `
-                    <h3 style="margin: 30px 0 15px 0;">Pilih Server</h3>
-                    <div class="server-list" id="serverList">
-                `;
-
-                data.server.qualities.forEach(quality => {
-                    if (quality.serverList && quality.serverList.length > 0) {
-                        html += `<div style="margin: 10px 0;"><strong style="color: #ff6b1a;">${quality.title}:</strong> `;
-                        quality.serverList.forEach(server => {
-                            html += `<button class="server-btn" onclick="changeServer('${server.href}')">${server.title}</button> `;
-                        });
-                        html += `</div>`;
-                    }
-                });
-
-                html += `</div>`;
-            }
-
-            // Download Links
-            if (data.downloadUrl && data.downloadUrl.qualities) {
-                html += `
-                    <div class="download-links">
-                        <h3><i class="fas fa-download"></i> Download Episode</h3>
-                `;
-
-                data.downloadUrl.qualities.forEach(quality => {
-                    if (quality.urls && quality.urls.length > 0) {
-                        html += `
-                            <div class="quality-section">
-                                <div class="quality-title">${quality.title} (${quality.size})</div>
-                                <div class="download-buttons">
-                        `;
-
-                        quality.urls.forEach(url => {
-                            html += `<a href="${url.url}" target="_blank" class="download-btn">${url.title}</a>`;
-                        });
-
-                        html += `</div></div>`;
-                    }
-                });
-
-                html += `</div>`;
-            }
-
-            // Info Anime
+            // Info Anime (tanpa download)
             if (data.info) {
                 html += `
-                    <div style="margin-top: 30px;">
-                        <h3>Info Anime</h3>
+                    <div style="margin-top: 30px; background-color: #0f0f13; padding: 20px; border-radius: 10px;">
+                        <h3 style="margin-bottom: 15px;">Info Anime</h3>
                         <p><strong>Credit:</strong> ${data.info.credit}</p>
                         <p><strong>Encoder:</strong> ${data.info.encoder}</p>
                         <p><strong>Durasi:</strong> ${data.info.duration}</p>
                         <p><strong>Tipe:</strong> ${data.info.type}</p>
-                        <div style="margin: 10px 0;">
+                        <div style="margin-top: 10px;">
                             <strong>Genre:</strong>
+                            <div class="genre-list" style="margin-top: 8px;">
                 `;
 
-                data.info.genreList.forEach(genre => {
-                    html += `<span class="genre-badge" onclick="navigateTo('genre', '${genre.genreId}')" style="margin-left: 5px;">${genre.title}</span>`;
-                });
-
-                html += `</div>`;
-            }
-
-            html += `</div>`;
-            document.getElementById('main-content').innerHTML = html;
-        }
-
-        // ==================== BATCH DETAIL ====================
-        async function loadBatchDetail(slug) {
-            showLoading();
-            const data = await fetchAPI(`/batch/${slug}`);
-            
-            if (!data) return;
-
-            let html = `
-                <div class="batch-container">
-                    <div class="detail-header">
-                        <div class="detail-poster">
-                            <img src="${data.poster}" alt="${data.title}">
-                        </div>
-                        <div class="detail-info">
-                            <h1>${data.title}</h1>
-                            <p style="color: #aaa;">${data.japanese || ''}</p>
-                            
-                            <div class="info-table">
-                                <span class="info-label">Skor:</span>
-                                <span class="info-value">${data.score || 'N/A'}</span>
-                                
-                                <span class="info-label">Tipe:</span>
-                                <span class="info-value">${data.type || 'N/A'}</span>
-                                
-                                <span class="info-label">Episode:</span>
-                                <span class="info-value">${data.episodes || '?'}</span>
-                                
-                                <span class="info-label">Durasi:</span>
-                                <span class="info-value">${data.duration || 'N/A'}</span>
-                                
-                                <span class="info-label">Studio:</span>
-                                <span class="info-value">${data.studios || 'N/A'}</span>
-                                
-                                <span class="info-label">Tayang:</span>
-                                <span class="info-value">${data.aired || 'N/A'}</span>
-                            </div>
-                            
-                            <div class="genre-list">
-            `;
-
-            data.genreList.forEach(genre => {
-                html += `<span class="genre-badge" onclick="navigateTo('genre', '${genre.genreId}')">${genre.title}</span>`;
-            });
-
-            html += `
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="batch-info">
-                        <p><strong>Credit:</strong> ${data.credit}</p>
-                    </div>
-                    
-                    <h2 style="margin: 30px 0 20px 0;">Download Batch</h2>
-            `;
-
-            data.downloadUrl.formats.forEach(format => {
-                html += `<div class="batch-quality"><h3>${format.title}</h3>`;
-
-                format.qualities.forEach(quality => {
-                    html += `
-                        <div class="quality-section">
-                            <div class="quality-title">${quality.title} (${quality.size})</div>
-                            <div class="download-buttons">
-                    `;
-
-                    quality.urls.forEach(url => {
-                        html += `<a href="${url.url}" target="_blank" class="download-btn">${url.title}</a>`;
+                if (data.info.genreList) {
+                    data.info.genreList.forEach(genre => {
+                        html += `<span class="genre-badge" onclick="navigateTo('genre', '${genre.genreId}')">${genre.title}</span>`;
                     });
+                }
 
-                    html += `</div></div>`;
-                });
-
-                html += `</div>`;
-            });
+                html += `
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
 
             html += `</div>`;
             document.getElementById('main-content').innerHTML = html;
@@ -1280,12 +1250,16 @@
             currentKeyword = keyword;
             const data = await fetchAPI(`/search/${keyword}`);
             
-            if (!data || !data.animeList) {
+            if (!data || !data.animeList || data.animeList.length === 0) {
                 document.getElementById('main-content').innerHTML = `
-                    <div style="text-align: center; padding: 50px;">
-                        <i class="fas fa-search fa-3x" style="color: #666;"></i>
-                        <h2 style="margin: 20px 0;">Tidak ada hasil untuk "${keyword}"</h2>
-                        <button onclick="navigateTo('home')" class="server-btn">Kembali ke Home</button>
+                    <div class="error-container">
+                        <div class="error-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <h2 class="error-message">Tidak ada hasil untuk "${keyword}"</h2>
+                        <button class="retry-btn" onclick="navigateTo('home')">
+                            <i class="fas fa-home"></i> Kembali ke Home
+                        </button>
                     </div>
                 `;
                 return;
@@ -1332,9 +1306,12 @@
                 extraInfo = `<span><i class="far fa-calendar-alt"></i> ${anime.lastReleaseDate}</span>`;
             }
 
+            // Use animeId or slug
+            const id = anime.animeId || anime.slug;
+
             return `
-                <div class="anime-card" onclick="navigateTo('detail', '${anime.animeId || anime.slug}')">
-                    <img src="${anime.poster}" alt="${anime.title}">
+                <div class="anime-card" onclick="navigateTo('detail', '${id}')">
+                    <img src="${anime.poster}" alt="${anime.title}" loading="lazy">
                     <div class="anime-card-detail">
                         <h4>${anime.title}</h4>
                         <p>Episode ${episodes}</p>
@@ -1355,12 +1332,6 @@
             
             html += '</div>';
             return html;
-        }
-
-        function changeServer(serverUrl) {
-            // For server change, we need to fetch the server endpoint
-            // This would open in a new tab or update iframe
-            window.open(`${BASE_URL}${serverUrl}`, '_blank');
         }
 
         // ==================== INIT ====================
