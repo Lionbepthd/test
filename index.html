@@ -1,53 +1,61 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lionime-anime</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lionime-anime</title>
+    <!-- Gunakan Google Fonts untuk gaya anime -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <nav class="navbar">
-    <div class="logo">Lionime-anime</div>
-    <ul class="nav-menu">
-      <li><a href="#home"><span>🏠</span> Home</a></li>
-      <li><a href="#ongoing"><span>🔄</span> Ongoing</a></li>
-      <li><a href="#completed"><span>✅</span> Completed</a></li>
-      <li><a href="#schedule"><span>📅</span> Schedule</a></li>
-      <li><a href="#history"><span>🕒</span> History</a></li>
-    </ul>
-    <div class="search-container">
-      <button class="search-btn">🔍</button>
-      <input type="text" class="search-box" placeholder="Cari judul anime..." />
-    </div>
-    <div class="hamburger">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-  </nav>
 
-  <main id="app">
-    <section id="home-page" class="page active">
-      <!-- Konten akan dimuat secara dinamis -->
-    </section>
-    <section id="ongoing-page" class="page">
-      <!-- Konten akan dimuat secara dinamis -->
-    </section>
-    <section id="completed-page" class="page">
-      <!-- Konten akan dimuat secara dinamis -->
-    </section>
-    <section id="schedule-page" class="page">
-      <!-- Konten akan dimuat secara dinamis -->
-    </section>
-    <section id="detail-page" class="page">
-      <!-- Konten akan dimuat secara dinamis -->
-    </section>
-    <section id="watch-page" class="page">
-      <!-- Konten akan dimuat secara dinamis -->
-    </section>
-  </main>
+    <header>
+        <div class="logo">Lionime-anime</div>
+        <nav>
+            <form id="searchForm">
+                <label for="searchInput">🔍</label>
+                <input type="text" id="searchInput" placeholder="Cari Anime...">
+            </form>
+        </nav>
+    </header>
 
-  <script src="script.js"></script>
+    <main>
+        <section id="homeSection">
+            <h2>Anime Sedang Tayang</h2>
+            <div id="ongoingList" class="anime-grid"></div>
+        </section>
+
+        <section id="detailSection" style="display: none;">
+            <button id="backToHome">← Kembali ke Beranda</button>
+            <div id="animeDetail">
+                <img id="detailPoster" src="" alt="Poster Anime">
+                <div id="detailInfo">
+                    <h1 id="detailTitle"></h1>
+                    <p id="detailScore">Skor: -</p>
+                    <p id="detailStatus">Status: -</p>
+                    <p id="detailGenre">Genre: -</p>
+                    <p id="detailSynopsis">Sinopsis: -</p>
+                </div>
+            </div>
+            <div id="episodeListContainer">
+                <h3>Daftar Episode</h3>
+                <div id="episodeList"></div>
+            </div>
+        </section>
+
+        <section id="playerSection" style="display: none;">
+            <button id="backToDetail">← Kembali ke Detail</button>
+            <div id="videoPlayerContainer">
+                <h3 id="episodeTitle">Episode</h3>
+                <iframe id="videoPlayer" src="" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
 </body>
 </html>
