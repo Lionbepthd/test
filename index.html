@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nonton Anime - Sumber Anda</title>
+    <title>AnimeKu - Nonton Anime Sub Indo</title>
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
@@ -15,24 +15,28 @@
         }
 
         body {
-            background-color: #141519;
+            background-color: #0f0f13;
             color: #ffffff;
         }
 
         /* Header */
         header {
-            background-color: #1f1f25;
+            background-color: #1a1a24;
             padding: 15px 5%;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            border-bottom: 2px solid #ff7b2b;
+            border-bottom: 3px solid #ff6b1a;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
         }
 
         .logo {
-            font-size: 24px;
+            font-size: 26px;
             font-weight: bold;
-            color: #ff7b2b;
+            color: #ff6b1a;
         }
 
         .logo span {
@@ -42,10 +46,10 @@
         .search-bar {
             display: flex;
             align-items: center;
-            background-color: #2b2b33;
+            background-color: #2a2a35;
             border-radius: 30px;
             padding: 5px 15px;
-            width: 300px;
+            width: 350px;
         }
 
         .search-bar input {
@@ -60,7 +64,7 @@
         .search-bar button {
             background: transparent;
             border: none;
-            color: #ff7b2b;
+            color: #ff6b1a;
             cursor: pointer;
             font-size: 18px;
         }
@@ -72,10 +76,7 @@
         nav ul {
             display: flex;
             list-style: none;
-        }
-
-        nav ul li {
-            margin-left: 25px;
+            gap: 20px;
         }
 
         nav ul li a {
@@ -83,33 +84,78 @@
             text-decoration: none;
             font-weight: 500;
             transition: color 0.3s;
+            font-size: 15px;
         }
 
-        nav ul li a:hover {
-            color: #ff7b2b;
+        nav ul li a:hover, nav ul li a.active {
+            color: #ff6b1a;
         }
 
-        /* Banner / Carousel */
-        .banner-section {
-            margin-top: 30px;
-            padding: 0 5%;
+        /* Main Content */
+        main {
+            padding: 20px 5%;
+            min-height: 80vh;
         }
 
+        /* Page Navigation */
+        .page-nav {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 30px 0;
+        }
+
+        .page-btn {
+            background-color: #2a2a35;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .page-btn:hover:not(:disabled) {
+            background-color: #ff6b1a;
+        }
+
+        .page-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .page-info {
+            color: #ff6b1a;
+            font-weight: bold;
+            padding: 8px 0;
+        }
+
+        /* Section Title */
         .section-title {
             font-size: 22px;
             font-weight: bold;
-            margin-bottom: 20px;
-            border-left: 5px solid #ff7b2b;
+            margin: 30px 0 20px 0;
+            border-left: 5px solid #ff6b1a;
             padding-left: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
+        .section-title a {
+            color: #ff6b1a;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        /* Banner/Carousel */
         .banner-container {
             display: flex;
-            gap: 20px;
+            gap: 15px;
             overflow-x: auto;
-            padding-bottom: 10px;
+            padding-bottom: 15px;
             scrollbar-width: thin;
-            scrollbar-color: #ff7b2b #2b2b33;
+            scrollbar-color: #ff6b1a #2a2a35;
         }
 
         .banner-container::-webkit-scrollbar {
@@ -117,20 +163,21 @@
         }
 
         .banner-container::-webkit-scrollbar-track {
-            background: #2b2b33;
+            background: #2a2a35;
             border-radius: 10px;
         }
 
         .banner-container::-webkit-scrollbar-thumb {
-            background: #ff7b2b;
+            background: #ff6b1a;
             border-radius: 10px;
         }
 
         .banner-item {
-            flex: 0 0 300px;
+            flex: 0 0 280px;
             position: relative;
             border-radius: 10px;
             overflow: hidden;
+            cursor: pointer;
             transition: transform 0.3s;
         }
 
@@ -140,9 +187,8 @@
 
         .banner-item img {
             width: 100%;
-            height: 170px;
+            height: 160px;
             object-fit: cover;
-            display: block;
         }
 
         .banner-info {
@@ -150,13 +196,12 @@
             bottom: 0;
             left: 0;
             right: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
-            padding: 40px 10px 10px 10px;
+            background: linear-gradient(to top, rgba(0,0,0,0.95), transparent);
+            padding: 30px 10px 10px 10px;
         }
 
         .banner-info h3 {
-            font-size: 16px;
-            margin-bottom: 3px;
+            font-size: 15px;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
@@ -164,41 +209,22 @@
 
         .banner-info p {
             font-size: 12px;
-            color: #ff7b2b;
-            font-weight: bold;
+            color: #ff6b1a;
         }
 
-        /* Content Grid */
-        .content-section {
-            margin-top: 40px;
-            padding: 0 5%;
-        }
-
-        .section-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-
-        .view-all {
-            color: #ff7b2b;
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 500;
-        }
-
+        /* Anime Grid */
         .anime-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
             gap: 20px;
         }
 
         .anime-card {
-            background-color: #1f1f25;
-            border-radius: 8px;
+            background-color: #1a1a24;
+            border-radius: 10px;
             overflow: hidden;
             transition: transform 0.3s;
+            cursor: pointer;
         }
 
         .anime-card:hover {
@@ -207,13 +233,12 @@
 
         .anime-card img {
             width: 100%;
-            height: 210px;
+            height: 220px;
             object-fit: cover;
-            display: block;
         }
 
         .anime-card-detail {
-            padding: 10px;
+            padding: 12px;
         }
 
         .anime-card-detail h4 {
@@ -233,183 +258,424 @@
         .anime-meta {
             display: flex;
             justify-content: space-between;
-            margin-top: 5px;
             font-size: 11px;
-            color: #ff7b2b;
+            color: #ff6b1a;
+            margin-top: 8px;
         }
 
-        /* Jadwal Section */
-        .schedule-section {
-            background-color: #1a1c22;
+        /* Genre Cloud */
+        .genre-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin: 20px 0;
+        }
+
+        .genre-tag {
+            background-color: #2a2a35;
+            color: white;
+            padding: 8px 18px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-size: 14px;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .genre-tag:hover {
+            background-color: #ff6b1a;
+        }
+
+        /* Alphabet Filter */
+        .alphabet-filter {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 20px 0;
+            background-color: #1a1a24;
+            padding: 15px;
             border-radius: 10px;
-            padding: 20px;
-            margin-top: 30px;
         }
 
-        .schedule-tabs {
+        .alphabet-item {
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #2a2a35;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .alphabet-item:hover, .alphabet-item.active {
+            background-color: #ff6b1a;
+        }
+
+        /* Detail Page */
+        .detail-container {
+            background-color: #1a1a24;
+            border-radius: 15px;
+            padding: 25px;
+        }
+
+        .detail-header {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .detail-poster {
+            width: 250px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .detail-poster img {
+            width: 100%;
+            height: auto;
+        }
+
+        .detail-info {
+            flex: 1;
+        }
+
+        .detail-info h1 {
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+
+        .info-table {
+            display: grid;
+            grid-template-columns: 100px 1fr;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .info-label {
+            color: #aaa;
+        }
+
+        .info-value {
+            color: #ff6b1a;
+        }
+
+        .genre-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 15px 0;
+        }
+
+        .genre-badge {
+            background-color: #2a2a35;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 13px;
+            cursor: pointer;
+        }
+
+        .synopsis {
+            background-color: #0f0f13;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            line-height: 1.6;
+            color: #ccc;
+        }
+
+        /* Episode List */
+        .episode-list {
+            margin: 30px 0;
+        }
+
+        .episode-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #0f0f13;
+            padding: 12px 20px;
+            border-radius: 8px;
+            margin-bottom: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .episode-item:hover {
+            background-color: #2a2a35;
+        }
+
+        .episode-title {
+            font-weight: 500;
+        }
+
+        .episode-date {
+            color: #aaa;
+            font-size: 13px;
+        }
+
+        /* Streaming Page */
+        .streaming-container {
+            background-color: #000;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .server-list {
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
             margin: 20px 0;
         }
 
-        .day-tab {
-            background-color: #2b2b33;
-            color: #fff;
+        .server-btn {
+            background-color: #2a2a35;
+            color: white;
             border: none;
-            padding: 8px 16px;
-            border-radius: 20px;
+            padding: 10px 20px;
+            border-radius: 5px;
             cursor: pointer;
-            font-weight: 500;
             transition: 0.3s;
         }
 
-        .day-tab.active, .day-tab:hover {
-            background-color: #ff7b2b;
+        .server-btn:hover, .server-btn.active {
+            background-color: #ff6b1a;
         }
 
-        .schedule-list {
-            list-style: none;
+        .download-links {
+            background-color: #1a1a24;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
         }
 
-        .schedule-item {
+        .quality-section {
+            margin: 15px 0;
+        }
+
+        .quality-title {
+            color: #ff6b1a;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .download-buttons {
             display: flex;
-            align-items: center;
-            gap: 15px;
-            padding: 12px 0;
-            border-bottom: 1px solid #333;
+            flex-wrap: wrap;
+            gap: 10px;
         }
 
-        .schedule-item:last-child {
-            border-bottom: none;
-        }
-
-        .schedule-item img {
-            width: 50px;
-            height: 70px;
-            object-fit: cover;
+        .download-btn {
+            background-color: #2a2a35;
+            color: white;
+            text-decoration: none;
+            padding: 8px 15px;
             border-radius: 5px;
-        }
-
-        .schedule-item-info {
-            flex: 1;
-        }
-
-        .schedule-item-info h4 {
-            font-size: 16px;
-            margin-bottom: 4px;
-        }
-
-        .schedule-item-info p {
             font-size: 13px;
-            color: #aaa;
+            transition: 0.3s;
         }
 
-        /* Footer */
-        footer {
-            background-color: #0b0b0f;
-            padding: 30px 5%;
-            margin-top: 50px;
+        .download-btn:hover {
+            background-color: #ff6b1a;
+        }
+
+        .nav-episode {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0;
+        }
+
+        .nav-episode-btn {
+            background-color: #2a2a35;
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+            text-decoration: none;
+        }
+
+        .nav-episode-btn:hover:not(:disabled) {
+            background-color: #ff6b1a;
+        }
+
+        .nav-episode-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        /* Batch Page */
+        .batch-container {
+            background-color: #1a1a24;
+            border-radius: 15px;
+            padding: 25px;
+        }
+
+        .batch-info {
+            margin: 20px 0;
+        }
+
+        .batch-quality {
+            margin: 25px 0;
+        }
+
+        .batch-quality h3 {
+            color: #ff6b1a;
+            margin-bottom: 15px;
+        }
+
+        /* Loading */
+        .loading {
             text-align: center;
-            border-top: 1px solid #333;
+            padding: 50px;
+            color: #ff6b1a;
         }
 
-        footer p {
-            color: #777;
-            font-size: 14px;
-        }
-
-        /* Responsif */
+        /* Responsive */
         @media (max-width: 768px) {
             header {
                 flex-direction: column;
                 gap: 15px;
             }
+            
             nav ul {
                 flex-wrap: wrap;
                 justify-content: center;
             }
-            nav ul li {
-                margin: 5px 10px;
-            }
+            
             .search-bar {
                 width: 100%;
             }
+            
             .anime-grid {
-                grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+                grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            }
+            
+            .detail-header {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            
+            .info-table {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
     <header>
-        <div class="logo">Anime<span>Stream</span></div>
+        <div class="logo" onclick="navigateTo('home')">Anime<span>Ku</span></div>
         <div class="search-bar">
-            <input type="text" placeholder="Cari anime... (contoh: boruto)">
-            <button><i class="fas fa-search"></i></button>
+            <input type="text" id="searchInput" placeholder="Cari anime... (contoh: boruto)" onkeypress="handleSearchKey(event)">
+            <button onclick="performSearch()"><i class="fas fa-search"></i></button>
         </div>
         <nav>
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Ongoing</a></li>
-                <li><a href="#">Completed</a></li>
-                <li><a href="#">Genre</a></li>
-                <li><a href="#">Jadwal</a></li>
+                <li><a href="#" onclick="navigateTo('home')" class="nav-link" id="nav-home">Home</a></li>
+                <li><a href="#" onclick="navigateTo('ongoing')" class="nav-link" id="nav-ongoing">Ongoing</a></li>
+                <li><a href="#" onclick="navigateTo('completed')" class="nav-link" id="nav-completed">Completed</a></li>
+                <li><a href="#" onclick="navigateTo('genre')" class="nav-link" id="nav-genre">Genre</a></li>
+                <li><a href="#" onclick="navigateTo('schedule')" class="nav-link" id="nav-schedule">Jadwal</a></li>
+                <li><a href="#" onclick="navigateTo('all')" class="nav-link" id="nav-all">All Anime</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- BANNER (Anime 1-6 dari home) -->
-    <section class="banner-section">
-        <h2 class="section-title">🔥 Spotlight Anime</h2>
-        <div class="banner-container" id="bannerContainer">
-            <!-- Data dari 6 anime pertama akan diisi oleh JavaScript -->
+    <main id="main-content">
+        <!-- Konten akan diisi oleh JavaScript -->
+        <div class="loading">
+            <i class="fas fa-spinner fa-spin fa-3x"></i>
+            <p style="margin-top: 20px;">Memuat data...</p>
         </div>
-    </section>
+    </main>
 
-    <!-- ONGOING ANIME (LANJUTAN) -->
-    <section class="content-section">
-        <div class="section-header">
-            <h2 class="section-title">📺 Sedang Tayang</h2>
-            <a href="#" class="view-all">Lihat Semua <i class="fas fa-chevron-right"></i></a>
-        </div>
-        <div class="anime-grid" id="ongoingGrid">
-            <!-- Data ongoing anime selain 6 pertama akan diisi JS (atau bisa juga tetap full) -->
-        </div>
-    </section>
-
-    <!-- JADWAL RILIS -->
-    <section class="content-section">
-        <h2 class="section-title">📅 Jadwal Rilis Anime</h2>
-        <div class="schedule-section">
-            <div class="schedule-tabs" id="scheduleTabs">
-                <!-- Tombol hari akan di-generate oleh JS -->
-            </div>
-            <div id="scheduleDisplay">
-                <!-- Konten jadwal akan diisi JS -->
-            </div>
-        </div>
-    </section>
-
-    <!-- COMPLETED ANIME -->
-    <section class="content-section">
-        <div class="section-header">
-            <h2 class="section-title">✅ Anime Tamat</h2>
-            <a href="#" class="view-all">Lihat Semua <i class="fas fa-chevron-right"></i></a>
-        </div>
-        <div class="anime-grid" id="completedGrid">
-            <!-- Data completed anime dari endpoint -->
-        </div>
-    </section>
-
-    <footer>
-        <p>&copy; 2026 AnimeStream. All rights reserved. | Data by Sanka Vollerei</p>
+    <footer style="background-color: #0a0a0f; padding: 30px 5%; text-align: center; color: #666; margin-top: 50px;">
+        <p>&copy; 2026 AnimeKu - Nonton Anime Sub Indo. Data by Sanka Vollerei.</p>
+        <p style="margin-top: 10px; font-size: 13px;">Semua konten berasal dari API eksternal. Hak cipta milik masing-masing pemilik.</p>
     </footer>
 
     <script>
-        // --- Fungsi Fetch Data ---
+        // ==================== KONFIGURASI ====================
         const BASE_URL = 'https://www.sankavollerei.com/anime';
+        let currentPage = 1;
+        let totalPages = 1;
+        let currentGenre = '';
+        let currentKeyword = '';
+        let currentAlphabet = '';
 
+        // ==================== NAVIGASI ====================
+        function navigateTo(page, param = '', pageNum = 1) {
+            // Update active nav
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+            });
+            const activeLink = document.getElementById(`nav-${page}`);
+            if (activeLink) activeLink.classList.add('active');
+
+            currentPage = pageNum;
+            
+            switch(page) {
+                case 'home':
+                    loadHome();
+                    break;
+                case 'ongoing':
+                    loadOngoing(pageNum);
+                    break;
+                case 'completed':
+                    loadCompleted(pageNum);
+                    break;
+                case 'genre':
+                    if (param) {
+                        loadGenreAnime(param, pageNum);
+                    } else {
+                        loadGenreList();
+                    }
+                    break;
+                case 'schedule':
+                    loadSchedule();
+                    break;
+                case 'all':
+                    loadAllAnime();
+                    break;
+                case 'detail':
+                    loadAnimeDetail(param);
+                    break;
+                case 'episode':
+                    loadEpisodeDetail(param);
+                    break;
+                case 'batch':
+                    loadBatchDetail(param);
+                    break;
+                case 'search':
+                    loadSearchResults(param, pageNum);
+                    break;
+            }
+        }
+
+        // ==================== API CALLS ====================
         async function fetchAPI(endpoint) {
             try {
                 const response = await fetch(`${BASE_URL}${endpoint}`);
@@ -418,148 +684,690 @@
                 if (data.status === 'success' && data.ok) {
                     return data.data;
                 } else {
-                    throw new Error('Data tidak valid dari API');
+                    throw new Error(data.message || 'Data tidak valid');
                 }
             } catch (error) {
                 console.error('Error fetching data:', error);
+                showError('Gagal memuat data. Periksa koneksi internet Anda.');
                 return null;
             }
         }
 
-        // 1. Fetch Home untuk Banner dan Ongoing
-        fetchAPI('/home').then(homeData => {
-            if (homeData) {
-                // Ambil 6 anime pertama dari ongoing
-                const firstSix = homeData.ongoing.animeList.slice(0, 6);
-                const bannerContainer = document.getElementById('bannerContainer');
-                bannerContainer.innerHTML = '';
-                firstSix.forEach(anime => {
-                    const bannerItem = document.createElement('div');
-                    bannerItem.className = 'banner-item';
-                    bannerItem.innerHTML = `
+        // ==================== LOADING & ERROR ====================
+        function showLoading() {
+            document.getElementById('main-content').innerHTML = `
+                <div class="loading">
+                    <i class="fas fa-spinner fa-spin fa-3x"></i>
+                    <p style="margin-top: 20px;">Memuat data...</p>
+                </div>
+            `;
+        }
+
+        function showError(message) {
+            document.getElementById('main-content').innerHTML = `
+                <div style="text-align: center; padding: 50px; color: #ff6b1a;">
+                    <i class="fas fa-exclamation-circle fa-3x"></i>
+                    <p style="margin-top: 20px;">${message}</p>
+                    <button onclick="navigateTo('home')" style="margin-top: 20px; padding: 10px 25px; background: #ff6b1a; border: none; color: white; border-radius: 5px; cursor: pointer;">Kembali ke Home</button>
+                </div>
+            `;
+        }
+
+        // ==================== HOME PAGE ====================
+        async function loadHome() {
+            showLoading();
+            const data = await fetchAPI('/home');
+            
+            if (!data) return;
+
+            const ongoing = data.ongoing.animeList || [];
+            const completed = data.completed.animeList || [];
+            const bannerAnime = ongoing.slice(0, 6);
+
+            let html = `
+                <section class="banner-section">
+                    <h2 class="section-title">🔥 Spotlight Anime</h2>
+                    <div class="banner-container">
+            `;
+
+            bannerAnime.forEach(anime => {
+                html += `
+                    <div class="banner-item" onclick="navigateTo('detail', '${anime.animeId}')">
                         <img src="${anime.poster}" alt="${anime.title}">
                         <div class="banner-info">
                             <h3>${anime.title}</h3>
                             <p>Episode ${anime.episodes}</p>
                         </div>
-                    `;
-                    bannerContainer.appendChild(bannerItem);
-                });
+                    </div>
+                `;
+            });
 
-                // Tampilkan semua ongoing di grid (opsional: bisa pakai semua atau sisanya)
-                const ongoingGrid = document.getElementById('ongoingGrid');
-                ongoingGrid.innerHTML = '';
-                homeData.ongoing.animeList.forEach(anime => {
-                    const card = document.createElement('div');
-                    card.className = 'anime-card';
-                    card.innerHTML = `
-                        <img src="${anime.poster}" alt="${anime.title}">
-                        <div class="anime-card-detail">
-                            <h4>${anime.title}</h4>
-                            <p>Episode ${anime.episodes}</p>
-                            <div class="anime-meta">
-                                <span><i class="far fa-calendar-alt"></i> ${anime.releaseDay}</span>
-                                <span><i class="far fa-clock"></i> ${anime.latestReleaseDate}</span>
+            html += `
+                    </div>
+                </section>
+
+                <section class="content-section">
+                    <div class="section-title">
+                        <span>📺 Sedang Tayang</span>
+                        <a href="#" onclick="navigateTo('ongoing')">Lihat Semua →</a>
+                    </div>
+                    <div class="anime-grid">
+            `;
+
+            ongoing.slice(0, 10).forEach(anime => {
+                html += createAnimeCard(anime);
+            });
+
+            html += `
+                    </div>
+                </section>
+
+                <section class="content-section">
+                    <div class="section-title">
+                        <span>✅ Anime Tamat</span>
+                        <a href="#" onclick="navigateTo('completed')">Lihat Semua →</a>
+                    </div>
+                    <div class="anime-grid">
+            `;
+
+            completed.slice(0, 10).forEach(anime => {
+                html += createAnimeCard(anime);
+            });
+
+            html += `
+                    </div>
+                </section>
+            `;
+
+            document.getElementById('main-content').innerHTML = html;
+        }
+
+        // ==================== ONGOING PAGE ====================
+        async function loadOngoing(page = 1) {
+            showLoading();
+            const data = await fetchAPI(`/ongoing-anime?page=${page}`);
+            
+            if (!data) return;
+
+            const animeList = data.animeList || [];
+            totalPages = data.pagination?.totalPages || 1;
+
+            let html = `
+                <h2 class="section-title">📺 Anime Sedang Tayang</h2>
+                <div class="anime-grid">
+            `;
+
+            animeList.forEach(anime => {
+                html += createAnimeCard(anime);
+            });
+
+            html += `</div>`;
+
+            // Pagination
+            html += createPagination(page, totalPages, 'ongoing');
+
+            document.getElementById('main-content').innerHTML = html;
+        }
+
+        // ==================== COMPLETED PAGE ====================
+        async function loadCompleted(page = 1) {
+            showLoading();
+            const data = await fetchAPI(`/complete-anime?page=${page}`);
+            
+            if (!data) return;
+
+            const animeList = data.animeList || [];
+            totalPages = data.pagination?.totalPages || 1;
+
+            let html = `
+                <h2 class="section-title">✅ Anime Tamat</h2>
+                <div class="anime-grid">
+            `;
+
+            animeList.forEach(anime => {
+                html += createAnimeCard(anime);
+            });
+
+            html += `</div>`;
+            html += createPagination(page, totalPages, 'completed');
+
+            document.getElementById('main-content').innerHTML = html;
+        }
+
+        // ==================== GENRE LIST ====================
+        async function loadGenreList() {
+            showLoading();
+            const data = await fetchAPI('/genre');
+            
+            if (!data || !data.genreList) return;
+
+            const genres = data.genreList;
+
+            let html = `
+                <h2 class="section-title">🎭 Daftar Genre</h2>
+                <div class="genre-cloud">
+            `;
+
+            genres.forEach(genre => {
+                html += `
+                    <span class="genre-tag" onclick="navigateTo('genre', '${genre.genreId}')">
+                        ${genre.title}
+                    </span>
+                `;
+            });
+
+            html += `</div>`;
+            document.getElementById('main-content').innerHTML = html;
+        }
+
+        // ==================== GENRE ANIME ====================
+        async function loadGenreAnime(slug, page = 1) {
+            showLoading();
+            currentGenre = slug;
+            const data = await fetchAPI(`/genre/${slug}?page=${page}`);
+            
+            if (!data) return;
+
+            const animeList = data.animeList || [];
+            totalPages = data.pagination?.totalPages || 1;
+
+            // Get genre name from first item or use slug
+            const genreName = animeList[0]?.genreList?.find(g => g.genreId === slug)?.title || slug;
+
+            let html = `
+                <h2 class="section-title">🎭 Genre: ${genreName}</h2>
+                <div class="anime-grid">
+            `;
+
+            animeList.forEach(anime => {
+                html += createAnimeCard(anime);
+            });
+
+            html += `</div>`;
+            html += createPagination(page, totalPages, 'genre', slug);
+
+            document.getElementById('main-content').innerHTML = html;
+        }
+
+        // ==================== SCHEDULE ====================
+        async function loadSchedule() {
+            showLoading();
+            const data = await fetchAPI('/schedule');
+            
+            if (!data) return;
+
+            let html = `
+                <h2 class="section-title">📅 Jadwal Rilis Anime</h2>
+                <div class="schedule-section" style="background: #1a1a24; padding: 20px; border-radius: 10px;">
+            `;
+
+            data.forEach(dayObj => {
+                html += `
+                    <div style="margin-bottom: 30px;">
+                        <h3 style="color: #ff6b1a; margin-bottom: 15px;">${dayObj.day}</h3>
+                        <div style="display: flex; flex-direction: column; gap: 10px;">
+                `;
+
+                dayObj.anime_list.forEach(anime => {
+                    html += `
+                        <div style="display: flex; align-items: center; gap: 15px; background: #0f0f13; padding: 10px; border-radius: 8px; cursor: pointer;" onclick="navigateTo('detail', '${anime.slug}')">
+                            <img src="${anime.poster}" alt="${anime.title}" style="width: 50px; height: 70px; object-fit: cover; border-radius: 5px;">
+                            <div>
+                                <h4 style="font-size: 16px;">${anime.title}</h4>
+                                <p style="color: #aaa; font-size: 13px;">Rilis setiap ${dayObj.day}</p>
                             </div>
                         </div>
                     `;
-                    ongoingGrid.appendChild(card);
-                });
-            }
-        });
-
-        // 2. Fetch Completed Anime (halaman 1)
-        fetchAPI('/complete-anime?page=1').then(completeData => {
-            if (completeData) {
-                const completedGrid = document.getElementById('completedGrid');
-                completedGrid.innerHTML = '';
-                completeData.animeList.slice(0, 10).forEach(anime => { // ambil 10 untuk contoh
-                    const card = document.createElement('div');
-                    card.className = 'anime-card';
-                    card.innerHTML = `
-                        <img src="${anime.poster}" alt="${anime.title}">
-                        <div class="anime-card-detail">
-                            <h4>${anime.title}</h4>
-                            <p>Episode ${anime.episodes}</p>
-                            <div class="anime-meta">
-                                <span><i class="fas fa-star"></i> ${anime.score || 'N/A'}</span>
-                                <span><i class="far fa-calendar-alt"></i> ${anime.lastReleaseDate}</span>
-                            </div>
-                        </div>
-                    `;
-                    completedGrid.appendChild(card);
-                });
-            }
-        });
-
-        // 3. Fetch Jadwal
-        fetchAPI('/schedule').then(scheduleData => {
-            if (scheduleData) {
-                const tabsContainer = document.getElementById('scheduleTabs');
-                const displayDiv = document.getElementById('scheduleDisplay');
-                let activeDay = scheduleData[0]?.day || 'Senin';
-
-                // Render tab buttons
-                scheduleData.forEach(dayObj => {
-                    const btn = document.createElement('button');
-                    btn.className = `day-tab ${dayObj.day === activeDay ? 'active' : ''}`;
-                    btn.textContent = dayObj.day;
-                    btn.dataset.day = dayObj.day;
-                    btn.onclick = () => {
-                        document.querySelectorAll('.day-tab').forEach(b => b.classList.remove('active'));
-                        btn.classList.add('active');
-                        renderSchedule(dayObj.day);
-                    };
-                    tabsContainer.appendChild(btn);
                 });
 
-                // Fungsi render jadwal per hari
-                function renderSchedule(day) {
-                    const selected = scheduleData.find(d => d.day === day);
-                    if (!selected) return;
-                    let html = '<ul class="schedule-list">';
-                    selected.anime_list.forEach(anime => {
+                html += `</div></div>`;
+            });
+
+            html += `</div>`;
+            document.getElementById('main-content').innerHTML = html;
+        }
+
+        // ==================== ALL ANIME (UNLIMITED) ====================
+        async function loadAllAnime() {
+            showLoading();
+            const data = await fetchAPI('/unlimited');
+            
+            if (!data || !data.list) return;
+
+            const alphabetList = data.list;
+
+            let html = `
+                <h2 class="section-title">📚 Semua Anime</h2>
+                <div class="alphabet-filter">
+                    <span class="alphabet-item ${!currentAlphabet ? 'active' : ''}" onclick="filterAlphabet('')">All</span>
+            `;
+
+            // Create alphabet filter
+            '#ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('').forEach(letter => {
+                html += `<span class="alphabet-item ${currentAlphabet === letter ? 'active' : ''}" onclick="filterAlphabet('${letter}')">${letter}</span>`;
+            });
+
+            html += `</div><div class="anime-grid">`;
+
+            // Filter based on selected alphabet
+            alphabetList.forEach(group => {
+                if (!currentAlphabet || currentAlphabet === 'All' || group.startWith === currentAlphabet) {
+                    group.animeList.forEach(anime => {
                         html += `
-                            <li class="schedule-item">
-                                <img src="${anime.poster}" alt="${anime.title}">
-                                <div class="schedule-item-info">
-                                    <h4>${anime.title}</h4>
-                                    <p>${anime.day} • Segera rilis</p>
+                            <div class="anime-card" onclick="navigateTo('detail', '${anime.animeId}')">
+                                <div style="background: linear-gradient(45deg, #ff6b1a, #ff9f4a); height: 120px; display: flex; align-items: center; justify-content: center;">
+                                    <i class="fas fa-film fa-3x" style="color: white;"></i>
                                 </div>
-                            </li>
+                                <div class="anime-card-detail">
+                                    <h4>${anime.title}</h4>
+                                </div>
+                            </div>
                         `;
                     });
-                    html += '</ul>';
-                    displayDiv.innerHTML = html;
-                }
-
-                // Render hari pertama
-                renderSchedule(activeDay);
-            }
-        });
-
-        // Fitur Search Sederhana (contoh)
-        document.querySelector('.search-bar button').addEventListener('click', () => {
-            const keyword = document.querySelector('.search-bar input').value.trim();
-            if (keyword === '') return;
-            fetchAPI(`/search/${keyword}`).then(searchData => {
-                if (searchData && searchData.animeList) {
-                    alert(`Ditemukan ${searchData.animeList.length} hasil untuk "${keyword}". Cek console untuk detail.`);
-                    console.log('Hasil pencarian:', searchData.animeList);
-                    // Di sini Anda bisa redirect ke halaman pencarian atau tampilkan modal
-                } else {
-                    alert('Tidak ada hasil ditemukan.');
                 }
             });
-        });
 
-        // Enter pada search
-        document.querySelector('.search-bar input').addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
-                document.querySelector('.search-bar button').click();
+            html += `</div>`;
+            document.getElementById('main-content').innerHTML = html;
+        }
+
+        function filterAlphabet(letter) {
+            currentAlphabet = letter;
+            loadAllAnime();
+        }
+
+        // ==================== ANIME DETAIL ====================
+        async function loadAnimeDetail(slug) {
+            showLoading();
+            const data = await fetchAPI(`/anime/${slug}`);
+            
+            if (!data) return;
+
+            let html = `
+                <div class="detail-container">
+                    <div class="detail-header">
+                        <div class="detail-poster">
+                            <img src="${data.poster}" alt="${data.title}">
+                        </div>
+                        <div class="detail-info">
+                            <h1>${data.title}</h1>
+                            <p style="color: #aaa; margin-bottom: 10px;">${data.japanese || ''}</p>
+                            
+                            <div class="info-table">
+                                <span class="info-label">Skor:</span>
+                                <span class="info-value">${data.score || 'N/A'}</span>
+                                
+                                <span class="info-label">Tipe:</span>
+                                <span class="info-value">${data.type || 'N/A'}</span>
+                                
+                                <span class="info-label">Status:</span>
+                                <span class="info-value">${data.status || 'N/A'}</span>
+                                
+                                <span class="info-label">Episode:</span>
+                                <span class="info-value">${data.episodes || '?'}</span>
+                                
+                                <span class="info-label">Durasi:</span>
+                                <span class="info-value">${data.duration || 'N/A'}</span>
+                                
+                                <span class="info-label">Tayang:</span>
+                                <span class="info-value">${data.aired || 'N/A'}</span>
+                                
+                                <span class="info-label">Studio:</span>
+                                <span class="info-value">${data.studios || 'N/A'}</span>
+                                
+                                <span class="info-label">Produser:</span>
+                                <span class="info-value">${data.producers || 'N/A'}</span>
+                            </div>
+                            
+                            <div class="genre-list">
+            `;
+
+            data.genreList.forEach(genre => {
+                html += `<span class="genre-badge" onclick="navigateTo('genre', '${genre.genreId}')">${genre.title}</span>`;
+            });
+
+            html += `
+                            </div>
+                            
+                            <div style="margin-top: 20px; display: flex; gap: 10px; flex-wrap: wrap;">
+            `;
+
+            if (data.batch) {
+                html += `<button class="server-btn" onclick="navigateTo('batch', '${slug}')"><i class="fas fa-download"></i> Download Batch</button>`;
             }
-        });
 
+            html += `
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="synopsis">
+                        <h3 style="margin-bottom: 15px;">Sinopsis</h3>
+                        <p>${data.synopsis?.paragraphs?.join(' ') || 'Sinopsis tidak tersedia.'}</p>
+                    </div>
+                    
+                    <div class="episode-list">
+                        <h3 style="margin-bottom: 20px;">Daftar Episode</h3>
+            `;
+
+            if (data.episodeList && data.episodeList.length > 0) {
+                data.episodeList.reverse().forEach(ep => {
+                    html += `
+                        <div class="episode-item" onclick="navigateTo('episode', '${ep.episodeId}')">
+                            <span class="episode-title">${ep.title}</span>
+                            <span class="episode-date">${ep.date}</span>
+                        </div>
+                    `;
+                });
+            } else {
+                html += `<p style="color: #aaa;">Belum ada episode.</p>`;
+            }
+
+            html += `
+                    </div>
+                    
+                    <div style="margin-top: 30px;">
+                        <h3 style="margin-bottom: 20px;">Rekomendasi Anime</h3>
+                        <div class="anime-grid">
+            `;
+
+            if (data.recommendedAnimeList) {
+                data.recommendedAnimeList.forEach(anime => {
+                    html += createAnimeCard(anime);
+                });
+            }
+
+            html += `
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            document.getElementById('main-content').innerHTML = html;
+        }
+
+        // ==================== EPISODE DETAIL ====================
+        async function loadEpisodeDetail(episodeId) {
+            showLoading();
+            const data = await fetchAPI(`/episode/${episodeId}`);
+            
+            if (!data) return;
+
+            let html = `
+                <div class="detail-container">
+                    <h1 style="margin-bottom: 20px;">${data.title}</h1>
+                    
+                    <div class="streaming-container">
+                        <div class="video-wrapper">
+                            <iframe src="${data.defaultStreamingUrl}" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    
+                    <div style="margin: 20px 0;">
+                        <p><i class="far fa-clock"></i> ${data.releaseTime}</p>
+                    </div>
+                    
+                    <div class="nav-episode">
+            `;
+
+            if (data.hasPrevEpisode) {
+                html += `<button class="nav-episode-btn" onclick="navigateTo('episode', '${data.prevEpisode.episodeId}')"><i class="fas fa-chevron-left"></i> Episode Sebelumnya</button>`;
+            } else {
+                html += `<button class="nav-episode-btn" disabled><i class="fas fa-chevron-left"></i> Episode Sebelumnya</button>`;
+            }
+
+            if (data.hasNextEpisode) {
+                html += `<button class="nav-episode-btn" onclick="navigateTo('episode', '${data.nextEpisode.episodeId}')">Episode Selanjutnya <i class="fas fa-chevron-right"></i></button>`;
+            } else {
+                html += `<button class="nav-episode-btn" disabled>Episode Selanjutnya <i class="fas fa-chevron-right"></i></button>`;
+            }
+
+            html += `</div>`;
+
+            // Server List
+            if (data.server && data.server.qualities) {
+                html += `
+                    <h3 style="margin: 30px 0 15px 0;">Pilih Server</h3>
+                    <div class="server-list" id="serverList">
+                `;
+
+                data.server.qualities.forEach(quality => {
+                    if (quality.serverList && quality.serverList.length > 0) {
+                        html += `<div style="margin: 10px 0;"><strong style="color: #ff6b1a;">${quality.title}:</strong> `;
+                        quality.serverList.forEach(server => {
+                            html += `<button class="server-btn" onclick="changeServer('${server.href}')">${server.title}</button> `;
+                        });
+                        html += `</div>`;
+                    }
+                });
+
+                html += `</div>`;
+            }
+
+            // Download Links
+            if (data.downloadUrl && data.downloadUrl.qualities) {
+                html += `
+                    <div class="download-links">
+                        <h3><i class="fas fa-download"></i> Download Episode</h3>
+                `;
+
+                data.downloadUrl.qualities.forEach(quality => {
+                    if (quality.urls && quality.urls.length > 0) {
+                        html += `
+                            <div class="quality-section">
+                                <div class="quality-title">${quality.title} (${quality.size})</div>
+                                <div class="download-buttons">
+                        `;
+
+                        quality.urls.forEach(url => {
+                            html += `<a href="${url.url}" target="_blank" class="download-btn">${url.title}</a>`;
+                        });
+
+                        html += `</div></div>`;
+                    }
+                });
+
+                html += `</div>`;
+            }
+
+            // Info Anime
+            if (data.info) {
+                html += `
+                    <div style="margin-top: 30px;">
+                        <h3>Info Anime</h3>
+                        <p><strong>Credit:</strong> ${data.info.credit}</p>
+                        <p><strong>Encoder:</strong> ${data.info.encoder}</p>
+                        <p><strong>Durasi:</strong> ${data.info.duration}</p>
+                        <p><strong>Tipe:</strong> ${data.info.type}</p>
+                        <div style="margin: 10px 0;">
+                            <strong>Genre:</strong>
+                `;
+
+                data.info.genreList.forEach(genre => {
+                    html += `<span class="genre-badge" onclick="navigateTo('genre', '${genre.genreId}')" style="margin-left: 5px;">${genre.title}</span>`;
+                });
+
+                html += `</div>`;
+            }
+
+            html += `</div>`;
+            document.getElementById('main-content').innerHTML = html;
+        }
+
+        // ==================== BATCH DETAIL ====================
+        async function loadBatchDetail(slug) {
+            showLoading();
+            const data = await fetchAPI(`/batch/${slug}`);
+            
+            if (!data) return;
+
+            let html = `
+                <div class="batch-container">
+                    <div class="detail-header">
+                        <div class="detail-poster">
+                            <img src="${data.poster}" alt="${data.title}">
+                        </div>
+                        <div class="detail-info">
+                            <h1>${data.title}</h1>
+                            <p style="color: #aaa;">${data.japanese || ''}</p>
+                            
+                            <div class="info-table">
+                                <span class="info-label">Skor:</span>
+                                <span class="info-value">${data.score || 'N/A'}</span>
+                                
+                                <span class="info-label">Tipe:</span>
+                                <span class="info-value">${data.type || 'N/A'}</span>
+                                
+                                <span class="info-label">Episode:</span>
+                                <span class="info-value">${data.episodes || '?'}</span>
+                                
+                                <span class="info-label">Durasi:</span>
+                                <span class="info-value">${data.duration || 'N/A'}</span>
+                                
+                                <span class="info-label">Studio:</span>
+                                <span class="info-value">${data.studios || 'N/A'}</span>
+                                
+                                <span class="info-label">Tayang:</span>
+                                <span class="info-value">${data.aired || 'N/A'}</span>
+                            </div>
+                            
+                            <div class="genre-list">
+            `;
+
+            data.genreList.forEach(genre => {
+                html += `<span class="genre-badge" onclick="navigateTo('genre', '${genre.genreId}')">${genre.title}</span>`;
+            });
+
+            html += `
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="batch-info">
+                        <p><strong>Credit:</strong> ${data.credit}</p>
+                    </div>
+                    
+                    <h2 style="margin: 30px 0 20px 0;">Download Batch</h2>
+            `;
+
+            data.downloadUrl.formats.forEach(format => {
+                html += `<div class="batch-quality"><h3>${format.title}</h3>`;
+
+                format.qualities.forEach(quality => {
+                    html += `
+                        <div class="quality-section">
+                            <div class="quality-title">${quality.title} (${quality.size})</div>
+                            <div class="download-buttons">
+                    `;
+
+                    quality.urls.forEach(url => {
+                        html += `<a href="${url.url}" target="_blank" class="download-btn">${url.title}</a>`;
+                    });
+
+                    html += `</div></div>`;
+                });
+
+                html += `</div>`;
+            });
+
+            html += `</div>`;
+            document.getElementById('main-content').innerHTML = html;
+        }
+
+        // ==================== SEARCH ====================
+        async function loadSearchResults(keyword, page = 1) {
+            showLoading();
+            currentKeyword = keyword;
+            const data = await fetchAPI(`/search/${keyword}`);
+            
+            if (!data || !data.animeList) {
+                document.getElementById('main-content').innerHTML = `
+                    <div style="text-align: center; padding: 50px;">
+                        <i class="fas fa-search fa-3x" style="color: #666;"></i>
+                        <h2 style="margin: 20px 0;">Tidak ada hasil untuk "${keyword}"</h2>
+                        <button onclick="navigateTo('home')" class="server-btn">Kembali ke Home</button>
+                    </div>
+                `;
+                return;
+            }
+
+            const animeList = data.animeList;
+
+            let html = `
+                <h2 class="section-title">🔍 Hasil Pencarian: "${keyword}" (${animeList.length})</h2>
+                <div class="anime-grid">
+            `;
+
+            animeList.forEach(anime => {
+                html += createAnimeCard(anime);
+            });
+
+            html += `</div>`;
+            document.getElementById('main-content').innerHTML = html;
+        }
+
+        function performSearch() {
+            const keyword = document.getElementById('searchInput').value.trim();
+            if (keyword) {
+                navigateTo('search', keyword);
+            }
+        }
+
+        function handleSearchKey(e) {
+            if (e.key === 'Enter') {
+                performSearch();
+            }
+        }
+
+        // ==================== UTILITY FUNCTIONS ====================
+        function createAnimeCard(anime) {
+            let episodes = anime.episodes || '?';
+            let extraInfo = '';
+            
+            if (anime.score) {
+                extraInfo = `<span><i class="fas fa-star"></i> ${anime.score}</span>`;
+            } else if (anime.releaseDay) {
+                extraInfo = `<span><i class="far fa-calendar-alt"></i> ${anime.releaseDay}</span>`;
+            } else if (anime.lastReleaseDate) {
+                extraInfo = `<span><i class="far fa-calendar-alt"></i> ${anime.lastReleaseDate}</span>`;
+            }
+
+            return `
+                <div class="anime-card" onclick="navigateTo('detail', '${anime.animeId || anime.slug}')">
+                    <img src="${anime.poster}" alt="${anime.title}">
+                    <div class="anime-card-detail">
+                        <h4>${anime.title}</h4>
+                        <p>Episode ${episodes}</p>
+                        <div class="anime-meta">
+                            ${extraInfo}
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function createPagination(current, total, pageType, param = '') {
+            let html = '<div class="page-nav">';
+            
+            html += `<button class="page-btn" ${current <= 1 ? 'disabled' : ''} onclick="navigateTo('${pageType}', '${param}', ${current - 1})"><i class="fas fa-chevron-left"></i> Prev</button>`;
+            html += `<span class="page-info">Halaman ${current} dari ${total}</span>`;
+            html += `<button class="page-btn" ${current >= total ? 'disabled' : ''} onclick="navigateTo('${pageType}', '${param}', ${current + 1})">Next <i class="fas fa-chevron-right"></i></button>`;
+            
+            html += '</div>';
+            return html;
+        }
+
+        function changeServer(serverUrl) {
+            // For server change, we need to fetch the server endpoint
+            // This would open in a new tab or update iframe
+            window.open(`${BASE_URL}${serverUrl}`, '_blank');
+        }
+
+        // ==================== INIT ====================
+        // Load home page on start
+        window.onload = () => {
+            navigateTo('home');
+        };
     </script>
 </body>
 </html>
